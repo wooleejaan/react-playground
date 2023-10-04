@@ -82,11 +82,11 @@ export default function ConfettiCanvas() {
       }
     });
 
-    // /**
-    //  * requestAnimationFrame을 통해 매 프레임마다 renderConfetti 함수가 호출되므로
-    //  * 아래와 같이 renderConfetti 함수 호출을 멈추도록하는 조건을 설정해야 합니다.
-    //  * 그러지 않으면 renderConfetti 함수 호출이 너무 많아져 앱이 느려집니다.
-    //  */
+    /**
+     * requestAnimationFrame을 통해 매 프레임마다 renderConfetti 함수가 호출되므로
+     * 아래와 같이 renderConfetti 함수 호출을 멈추도록하는 조건을 설정해야 합니다.
+     * 그러지 않으면 renderConfetti 함수 호출이 너무 많아져 앱이 느려집니다.
+     */
 
     confettiRef.current.forEach((confetto, index) => {
       if (confetto.position.y >= canvas.height) {
@@ -104,8 +104,6 @@ export default function ConfettiCanvas() {
     if (confettiRef.current.length === 0 && sequinsRef.current.length === 0) {
       return;
     }
-
-    console.log(confettiRef.current, sequinsRef.current);
 
     requestAnimationFrame(renderConfetti);
   };
